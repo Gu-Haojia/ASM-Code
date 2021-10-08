@@ -1,0 +1,139 @@
+﻿#include <iostream>
+using namespace std;
+
+int main()
+{
+	char in1[100];
+	char in2[100];
+	char out1[100];
+	char out2[100];
+	char out3[100];
+
+	cin >> in1;
+	cin >> in2;
+
+
+	_asm {
+		LEA EAX,out3
+		PUSH EAX
+		LEA EAX,out2
+		PUSH EAX
+		LEA EAX,out1
+		PUSH EAX
+		LEA EAX,in2
+		PUSH EAX
+		LEA EAX,in1
+		PUSH EAX
+		
+		CALL PROCESS
+
+		POP EAX
+		POP EAX
+		POP EAX
+		POP EAX
+		POP EAX
+	}
+	cout << out1 << endl;
+	cout << out2 << endl;
+	cout << out3 << endl;
+
+
+	return  0;
+	_asm {
+	PROCESS:
+		PUSH EBP
+		MOV EBP, ESP
+
+
+		MOV EBX, [EBP + 12]
+		XOR EAX, EAX
+		TOINT1 :
+		CMP[EBX], 0
+		JZ END1
+		MOV ECX, 10
+		MUL ECX
+		XOR EDX, EDX
+		MOV DL, [EBX]
+		SUB DL, '0'
+		ADD EAX, EDX
+		INC EBX
+		JMP TOINT1
+		END1 :
+		MOV [EBP-4],EAX
+
+
+		MOV EBX, [EBP + 12]
+		XOR EAX, EAX
+		TOINT2 :
+		CMP[EBX], 0
+		JZ END2
+		MOV ECX, 10
+		MUL ECX
+		XOR EDX, EDX
+		MOV DL, [EBX]
+		SUB DL, '0'
+		ADD EAX, EDX
+		INC EBX
+		JMP TOINT2
+		END2:
+		MOV[EBP - 8], EAX
+
+
+
+		MOV EDX,[EBP-4]
+		ADD EAX,EDX
+		MOV ESI,[EBP+12]
+		CALL TOCHARNUM
+
+		MOV EDX, [EBP - 4]
+		MOV EAX,[EBP-8]
+		MOV ESI, [EBP + 16]
+		SUB EAX, EDX
+		CMP EAX,0
+		JGE PASS
+		MOV [ESI],'-'
+		INC ESI
+		NEG EAX
+		PASS:
+		CALL TOCHARNUM
+
+		MOV EDX, [EBP - 4]
+		MOV EAX, [EBP - 8]
+		MOV ESI, [EBP + 20]
+		MUL EDX
+		CALL TOCHARNUM
+
+		MOV ESP,EBP
+		POP EBP
+
+	RET
+
+
+
+	
+
+
+	TOCHARNUM:
+			XOR ECX, ECX
+			NEXT :
+			XOR EDX, EDX
+			MOV EBX, 10
+			DIV EBX
+			INC ECX
+			PUSH DX
+			CMP EAX, 0
+			JNZ NEXT
+
+			TRANS :
+			POP AX
+			DEC ECX
+			ADD AL, '0'
+			MOV[ESI], AL
+			INC ESI
+			CMP ECX, 0
+			JNZ TRANS
+			MOV[ESI], 0
+			RET
+
+	}
+}

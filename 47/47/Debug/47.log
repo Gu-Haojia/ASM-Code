@@ -1,0 +1,4 @@
+﻿  47.cpp
+C:\Users\18711\source\repos\47\47\47.cpp(13): warning C4405: “in”: 标识符是保留字
+C:\Users\18711\source\repos\47\47\47.cpp(14): warning C4405: “out”: 标识符是保留字
+  47.vcxproj -> C:\Users\18711\source\repos\47\Debug\47.exe

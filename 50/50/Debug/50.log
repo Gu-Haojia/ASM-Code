@@ -1,0 +1,4 @@
+﻿  50.cpp
+C:\Users\18711\source\repos\50\50\50.cpp(47): warning C4731: “main”: 框架指针寄存器“ebp”被内联程序集代码修改
+C:\Users\18711\source\repos\50\50\50.cpp(170): warning C4731: “main”: 框架指针寄存器“ebp”被内联程序集代码修改
+  50.vcxproj -> C:\Users\18711\source\repos\50\Debug\50.exe

@@ -1,0 +1,6 @@
+﻿  41.cpp
+C:\Users\18711\source\repos\41\41\41.cpp(10): warning C4405: “str”: 标识符是保留字
+C:\Users\18711\source\repos\41\41\41.cpp(22): warning C4731: “main”: 框架指针寄存器“ebp”被内联程序集代码修改
+C:\Users\18711\source\repos\41\41\41.cpp(35): warning C4731: “main”: 框架指针寄存器“ebp”被内联程序集代码修改
+C:\Users\18711\source\repos\41\41\41.cpp(45): warning C4731: “main”: 框架指针寄存器“ebp”被内联程序集代码修改
+  41.vcxproj -> C:\Users\18711\source\repos\41\Debug\41.exe
