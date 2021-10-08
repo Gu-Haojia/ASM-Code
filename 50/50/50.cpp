@@ -26,7 +26,7 @@ int main()
 		LEA EAX, in1
 		PUSH EAX
 
-		CALL PROCESS   //call func
+		CALL PROCESS   //call function
 
 		POP EAX
 		POP EAX
