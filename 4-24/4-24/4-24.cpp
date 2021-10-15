@@ -97,7 +97,7 @@ int main()
 			TOINT2 :
 			CMP[EBX], 0
 			JZ END2
-			MOV ECX, 10
+			MOV ECX, 16
 			MUL ECX
 			XOR EDX, EDX
 			MOV DL, [EBX]
