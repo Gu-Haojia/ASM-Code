@@ -14,7 +14,7 @@ int main() {
 		JZ OUTP
 
 		CMP AL,' '
-		JZ PRO
+		JZ NEXT
 		CMP AL,'0'
 		JB PRO
 		CMP AL,'9'
